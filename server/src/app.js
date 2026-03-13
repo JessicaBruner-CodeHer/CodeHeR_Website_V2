@@ -1,8 +1,25 @@
-import axios from "axios";
+import express from "express";
+import cors from "cors";
+import quoteRoutes from "./routes/quoteRoutes.js";
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "/api",
-  withCredentials: true
+const app = express();
+
+app.use(
+  cors({
+    origin: true,
+    credentials: true
+  })
+);
+
+app.use(express.json());
+
+app.get("/api/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "API is running"
+  });
 });
 
-export default api;
+app.use("/api/quotes", quoteRoutes);
+
+export default app;
