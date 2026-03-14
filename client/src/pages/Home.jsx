@@ -20,9 +20,10 @@ function Home() {
         <Hosting />
         <About />
         <ContactCTA />
+         <QuoteForm />
       </main>
       <Footer />
-      <QuoteForm />
+     
     </>
   );
 }
