@@ -2,6 +2,9 @@ import { useState } from "react";
 import { submitQuote } from "@services/quoteService";
 
 function QuoteForm() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [status, setStatus] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,8 +12,6 @@ function QuoteForm() {
     projectType: "",
     message: ""
   });
-
-  const [status, setStatus] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,83 +47,90 @@ function QuoteForm() {
   };
 
   return (
-    <section id="quote-form">
-      <h2>Tell Us About Your Project</h2>
+    <section id="quote-form" className="quote-section">
+      <h2>Lorem Ipsum Project Request</h2>
+
       <p>
-        Complete the form below and we will follow up with next steps and a
-        custom quote.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
       </p>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+      <button className="quote-open-button" onClick={() => setIsOpen(true)}>
+        Open Quote Form
+      </button>
 
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="organization">Business or Organization</label>
-          <input
-            id="organization"
-            name="organization"
-            type="text"
-            value={formData.organization}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="projectType">Project Type</label>
-          <select
-            id="projectType"
-            name="projectType"
-            value={formData.projectType}
-            onChange={handleChange}
-            required
+      {isOpen && (
+        <div className="quote-modal-overlay" onClick={() => setIsOpen(false)}>
+          <div
+            className="quote-modal"
+            onClick={(event) => event.stopPropagation()}
           >
-            <option value="">Select one</option>
-            <option value="New Website">New Website</option>
-            <option value="Website Rebuild">Website Rebuild</option>
-            <option value="Managed Hosting">Managed Hosting</option>
-            <option value="Technical Support">Technical Support</option>
-            <option value="General Inquiry">General Inquiry</option>
-          </select>
+            <button
+              className="quote-close-button"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close quote form"
+            >
+              ×
+            </button>
+
+            <h3>Request a Quote</h3>
+
+            <form onSubmit={handleSubmit}>
+              <input
+                name="name"
+                type="text"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+
+              <input
+                name="organization"
+                type="text"
+                placeholder="Organization"
+                value={formData.organization}
+                onChange={handleChange}
+              />
+
+              <select
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Project Type</option>
+                <option value="New Website">New Website</option>
+                <option value="Website Rebuild">Website Rebuild</option>
+                <option value="Managed Hosting">Managed Hosting</option>
+                <option value="Technical Support">Technical Support</option>
+              </select>
+
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Project details"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+
+              <button type="submit">Submit</button>
+            </form>
+
+            {status && <p>{status}</p>}
+          </div>
         </div>
-
-        <div>
-          <label htmlFor="message">Project Details</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="6"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button type="submit">Send Request</button>
-      </form>
-
-      {status && <p>{status}</p>}
+      )}
     </section>
   );
 }

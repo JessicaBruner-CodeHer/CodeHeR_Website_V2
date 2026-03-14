@@ -300,3 +300,109 @@ nav a:hover {
   display: block;
   margin-bottom: 18px;
 }
+/* NAVBAR POLISH */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav-brand img {
+  height: 42px;
+  width: auto;
+}
+
+
+/* FOOTER */
+
+.site-footer {
+  background: #111;
+  color: white;
+  padding: 70px 10%;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-logo {
+  height: 52px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  margin: 0 auto 18px;
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-meta {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-copy {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* QUOTE MODAL */
+
+.quote-section {
+  text-align: center;
+}
+
+.quote-open-button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.quote-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 2000;
+}
+
+.quote-modal {
+  background: white;
+  width: 100%;
+  max-width: 620px;
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+}
+
+.quote-modal h3 {
+  margin-bottom: 20px;
+}
+
+.quote-close-button {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
