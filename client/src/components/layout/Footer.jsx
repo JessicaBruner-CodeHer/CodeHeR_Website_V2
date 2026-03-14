@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <p>© {new Date().getFullYear()} CodeHeR LLC</p>
+      <p>© 2024 CodeHeR LLC</p>
     </footer>
   );
 }

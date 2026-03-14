@@ -2,11 +2,11 @@ import Navbar from "@components/layout/Navbar";
 import Footer from "@components/layout/Footer";
 
 import Hero from "@components/home/Hero";
-import About from "@components/home/About";
+import TrustStrip from "@components/home/TrustStrip";
 import Services from "@components/home/Services";
-import WhyChooseUs from "@components/home/WhyChooseUs";
-import Process from "@components/home/Process";
-
+import Hosting from "@components/home/Hosting";
+import About from "@components/home/About";
+import ContactCTA from "@components/home/ContactCTA";
 import QuoteForm from "@components/forms/QuoteForm";
 
 function Home() {
@@ -14,10 +14,11 @@ function Home() {
     <>
       <Navbar />
       <Hero />
-      <About />
+      <TrustStrip />
       <Services />
-      <WhyChooseUs />
-      <Process />
+      <Hosting />
+      <About />
+      <ContactCTA />
       <QuoteForm />
       <Footer />
     </>

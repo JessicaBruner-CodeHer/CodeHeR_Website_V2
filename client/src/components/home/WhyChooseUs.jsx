@@ -4,10 +4,37 @@ function WhyChooseUs() {
       <h2>Why Choose CodeHeR</h2>
 
       <ul>
-        <li>Custom-built solutions instead of one-size-fits-all templates</li>
-        <li>Clear communication throughout the project</li>
-        <li>Responsive websites built for real business needs</li>
-        <li>Ongoing support, updates, and technical help after launch</li>
+        <li>
+          <h3>Custom Work</h3>
+          <p>
+            Every project is built around the client instead of forcing a
+            one-size-fits-all solution.
+          </p>
+        </li>
+
+        <li>
+          <h3>Clear Communication</h3>
+          <p>
+            Technical work is explained in a way that makes the process easier
+            to understand and manage.
+          </p>
+        </li>
+
+        <li>
+          <h3>Business-Focused Development</h3>
+          <p>
+            The goal is not just to build a website, but to support credibility,
+            visibility, and growth.
+          </p>
+        </li>
+
+        <li>
+          <h3>Ongoing Support</h3>
+          <p>
+            Clients are not left on their own after launch. Support and updates
+            remain part of the relationship.
+          </p>
+        </li>
       </ul>
     </section>
   );
