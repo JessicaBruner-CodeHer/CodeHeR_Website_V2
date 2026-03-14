@@ -2,39 +2,34 @@ import { IMAGES } from "@assets/images";
 
 function Hosting() {
   return (
-    <section id="hosting">
-      <div>
-        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+    <section id="hosting" className="hosting section">
+      <div className="container hosting-grid">
+        <div className="hosting-copy">
+          <p className="eyebrow">Managed Hosting</p>
+          <h2>Placeholder Hosting Section Heading</h2>
+          <p>Placeholder hosting messaging.</p>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+          <div className="hosting-points">
+            <div className="hosting-point">
+              <h3>Secure Hosting</h3>
+              <p>Placeholder text.</p>
+            </div>
 
-        <div>
-          <h3>Lorem Ipsum</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
+            <div className="hosting-point">
+              <h3>Monitoring</h3>
+              <p>Placeholder text.</p>
+            </div>
+
+            <div className="hosting-point">
+              <h3>Support</h3>
+              <p>Placeholder text.</p>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <h3>Lorem Ipsum</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
+        <div className="hosting-visual">
+          <img src={IMAGES.services} alt="Web infrastructure graphic" />
         </div>
-
-        <div>
-          <h3>Lorem Ipsum</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </div>
-      </div>
-
-      <div>
-        <img src={IMAGES.services} alt="Infrastructure graphic" />
       </div>
     </section>
   );

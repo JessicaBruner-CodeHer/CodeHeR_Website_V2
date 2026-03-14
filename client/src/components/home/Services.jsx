@@ -2,42 +2,52 @@ function Services() {
   const services = [
     {
       title: "Full Website Build",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      description: "Placeholder description for full website development.",
+      price: "Starting at $X,XXX"
     },
     {
       title: "Website Rebuild",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud exercitation."
+      description: "Placeholder description for redesign and rebuild work.",
+      price: "Starting at $X,XXX"
     },
     {
       title: "Managed Hosting",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit."
+      description: "Placeholder hosting description.",
+      price: "Starting at $XXX / month"
     },
     {
       title: "Technical Support",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident."
+      description: "Placeholder technical support description.",
+      price: "$XXX / hour"
     }
   ];
 
   return (
-    <section id="services">
-      <h2>Lorem Ipsum Development Services</h2>
+    <section id="services" className="services section">
+      <div className="container">
+        <div className="section-heading">
+          <p className="eyebrow">Services</p>
+          <h2>Built to Support the Full Life of Your Website</h2>
+          <p>Placeholder text for services intro.</p>
+        </div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+        <div className="card-grid">
+          {services.map((service) => (
+            <article className="flip-card" key={service.title}>
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <h3>{service.title}</h3>
+                </div>
 
-      <div className="services-card-grid">
-        {services.map((service) => (
-          <div key={service.title} className="service-card">
-            <h3>{service.title}</h3>
-            <p>{service.text}</p>
-          </div>
-        ))}
+                <div className="flip-card-back">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <span className="price-tag">{service.price}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

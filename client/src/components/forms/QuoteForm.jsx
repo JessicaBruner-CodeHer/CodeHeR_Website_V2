@@ -2,8 +2,8 @@ import { useState } from "react";
 import { submitQuote } from "@services/quoteService";
 
 function QuoteForm() {
-  const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("");
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -24,13 +24,12 @@ function QuoteForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setStatus("Submitting...");
+    setStatus("");
 
     try {
       const result = await submitQuote(formData);
 
       if (result.success) {
-        setStatus("Quote submitted successfully.");
         setFormData({
           name: "",
           email: "",
@@ -38,6 +37,7 @@ function QuoteForm() {
           projectType: "",
           message: ""
         });
+        setShowThankYou(true);
       } else {
         setStatus("Something went wrong.");
       }
@@ -47,90 +47,119 @@ function QuoteForm() {
   };
 
   return (
-    <section id="quote-form" className="quote-section">
-      <h2>Lorem Ipsum Project Request</h2>
+    <section id="quote-form" className="quote-form-anchor">
+      <div className="quote-modal is-open" id="quoteModal" aria-hidden="false">
+        <div className="quote-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+          {!showThankYou ? (
+            <div className="modal-view is-active" id="quoteFormView">
+              <div className="quote-modal-header">
+                <p className="eyebrow">Request a Quote</p>
+                <h2 id="quoteModalTitle">Tell Us About Your Project</h2>
+                <p>
+                  Complete the form below and we will follow up with next steps and a custom quote.
+                </p>
+              </div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+              <form className="quote-form" id="quoteForm" onSubmit={handleSubmit} noValidate>
+                <div className="form-group">
+                  <label htmlFor="quoteName">Name</label>
+                  <input
+                    id="quoteName"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-      <button className="quote-open-button" onClick={() => setIsOpen(true)}>
-        Open Quote Form
-      </button>
+                <div className="form-group">
+                  <label htmlFor="quoteEmail">Email</label>
+                  <input
+                    id="quoteEmail"
+                    name="email"
+                    type="email"
+                    placeholder="Your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-      {isOpen && (
-        <div className="quote-modal-overlay" onClick={() => setIsOpen(false)}>
-          <div
-            className="quote-modal"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              className="quote-close-button"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close quote form"
-            >
-              ×
-            </button>
+                <div className="form-group">
+                  <label htmlFor="quoteOrg">Business or Organization</label>
+                  <input
+                    id="quoteOrg"
+                    name="organization"
+                    type="text"
+                    placeholder="Company or nonprofit name"
+                    value={formData.organization}
+                    onChange={handleChange}
+                  />
+                </div>
 
-            <h3>Request a Quote</h3>
+                <div className="form-group">
+                  <label htmlFor="quoteType">Project Type</label>
+                  <select
+                    id="quoteType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select one</option>
+                    <option value="New Website">New Website</option>
+                    <option value="Website Rebuild">Website Rebuild</option>
+                    <option value="Managed Hosting">Managed Hosting</option>
+                    <option value="Technical Support">Technical Support</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                </div>
 
-            <form onSubmit={handleSubmit}>
-              <input
-                name="name"
-                type="text"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+                <div className="form-group form-group-full">
+                  <label htmlFor="quoteMessage">Project Details</label>
+                  <textarea
+                    id="quoteMessage"
+                    name="message"
+                    rows="6"
+                    placeholder="Tell us about your project"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                </div>
 
-              <input
-                name="email"
-                type="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+                {status && <div className="form-message">{status}</div>}
 
-              <input
-                name="organization"
-                type="text"
-                placeholder="Organization"
-                value={formData.organization}
-                onChange={handleChange}
-              />
+                <div className="quote-form-actions">
+                  <button type="submit" className="btn btn-primary">Send Request</button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div className="modal-view thank-you-view is-active" id="quoteThankYouView">
+              <div className="quote-modal-header thank-you-header">
+                <p className="eyebrow">Thank You</p>
+                <h2>Your Request Has Been Submitted</h2>
+                <p>
+                  We received your message and will review your project details shortly.
+                </p>
+              </div>
 
-              <select
-                name="projectType"
-                value={formData.projectType}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select Project Type</option>
-                <option value="New Website">New Website</option>
-                <option value="Website Rebuild">Website Rebuild</option>
-                <option value="Managed Hosting">Managed Hosting</option>
-                <option value="Technical Support">Technical Support</option>
-              </select>
-
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="Project details"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-
-              <button type="submit">Submit</button>
-            </form>
-
-            {status && <p>{status}</p>}
-          </div>
+              <div className="thank-you-actions">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => setShowThankYou(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </section>
   );
 }

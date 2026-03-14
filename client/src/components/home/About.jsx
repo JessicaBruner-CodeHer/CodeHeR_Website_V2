@@ -2,23 +2,18 @@ import { IMAGES } from "@assets/images";
 
 function About() {
   return (
-    <section id="about">
-      <div>
-        <img src={IMAGES.founder} alt="Founder" />
-      </div>
+    <section id="about" className="about section">
+      <div className="container about-grid">
+        <div className="about-image">
+          <img src={IMAGES.founder} alt="Founder of CodeHeR LLC" />
+        </div>
 
-      <div>
-        <h2>Lorem Ipsum Dolor Sit Amet</h2>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris.
-        </p>
+        <div className="about-copy">
+          <p className="eyebrow">About</p>
+          <h2>Placeholder About Section Heading</h2>
+          <p>Placeholder company description.</p>
+          <p>Additional placeholder paragraph.</p>
+        </div>
       </div>
     </section>
   );

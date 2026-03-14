@@ -13,14 +13,16 @@ function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <TrustStrip />
-      <Services />
-      <Hosting />
-      <About />
-      <ContactCTA />
-      <QuoteForm />
+      <main>
+        <Hero />
+        <TrustStrip />
+        <Services />
+        <Hosting />
+        <About />
+        <ContactCTA />
+      </main>
       <Footer />
+      <QuoteForm />
     </>
   );
 }
