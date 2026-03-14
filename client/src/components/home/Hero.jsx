@@ -1,14 +1,30 @@
-import { IMAGES } from "../../assets/images";
+import { IMAGES } from "@assets/images";
 
 function Hero() {
   return (
-    <section>
-      <img src={IMAGES.services} alt="CodeHeR Services" width="600" />
+    <section id="hero">
+      <div>
+        <h1>Lorem Ipsum Website Development</h1>
 
-      <h1>CodeHeR LLC</h1>
-      <p>Custom web development and digital solutions.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
 
-      <a href="#contact">Request a Quote</a>
+        <div className="hero-buttons">
+          <a href="#quote-form" className="hero-primary">
+            Request Quote
+          </a>
+
+          <a href="#services" className="hero-secondary">
+            View Services
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <img src={IMAGES.sitePreview} alt="Website preview" />
+      </div>
     </section>
   );
 }
