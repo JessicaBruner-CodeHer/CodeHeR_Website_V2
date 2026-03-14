@@ -1,30 +1,30 @@
 function Services() {
-  const serviceCards = [
+  const services = [
     {
       title: "Full Website Build",
-      description:
+      text:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
       title: "Website Rebuild",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation."
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud exercitation."
     },
     {
       title: "Managed Hosting",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate."
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit."
     },
     {
       title: "Technical Support",
-      description:
+      text:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident."
     }
   ];
 
   return (
     <section id="services">
-      <h2>Lorem Ipsum Dolor Sit Amet</h2>
+      <h2>Lorem Ipsum Development Services</h2>
 
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
@@ -32,11 +32,11 @@ function Services() {
       </p>
 
       <div className="services-card-grid">
-        {serviceCards.map((card) => (
-          <article key={card.title} className="service-card">
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
-          </article>
+        {services.map((service) => (
+          <div key={service.title} className="service-card">
+            <h3>{service.title}</h3>
+            <p>{service.text}</p>
+          </div>
         ))}
       </div>
     </section>

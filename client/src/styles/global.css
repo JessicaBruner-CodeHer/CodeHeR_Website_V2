@@ -268,3 +268,35 @@ nav a:hover {
   }
 
 }
+/* SERVICE CARD ENHANCEMENT */
+
+.services-card-grid {
+  margin-top: 50px;
+}
+
+.service-card {
+  position: relative;
+  padding: 36px 32px;
+  border-radius: 12px;
+  border: 1px solid #e5e7ef;
+  background: white;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #5c5c5c;
+}
+
+.service-card::before {
+  content: "";
+  width: 40px;
+  height: 4px;
+  background: black;
+  display: block;
+  margin-bottom: 18px;
+}
