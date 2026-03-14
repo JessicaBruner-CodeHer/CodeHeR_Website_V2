@@ -2,6 +2,7 @@ import { useState } from "react";
 import { submitQuote } from "@services/quoteService";
 
 function QuoteForm() {
+  const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [showThankYou, setShowThankYou] = useState(false);
 
@@ -20,6 +21,12 @@ function QuoteForm() {
       ...prev,
       [name]: value
     }));
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setStatus("");
+    setShowThankYou(false);
   };
 
   const handleSubmit = async (event) => {
@@ -47,9 +54,31 @@ function QuoteForm() {
   };
 
   return (
-    <section id="quote-form" className="quote-form-anchor">
-      <div className="quote-modal is-open" id="quoteModal" aria-hidden="false">
+    <section id="quote-form" className="quote-form-anchor section">
+      <div className="container section-heading">
+        <p className="eyebrow">Request a Quote</p>
+        <h2>Tell Us About Your Project</h2>
+        <p>
+          Complete the form below and we will follow up with next steps and a custom quote.
+        </p>
+        <button type="button" className="btn btn-primary" onClick={() => setIsOpen(true)}>
+          Open Quote Form
+        </button>
+      </div>
+
+      <div className={`quote-modal ${isOpen ? "is-open" : ""}`} aria-hidden={!isOpen}>
+        <div className="quote-modal-backdrop" onClick={handleClose}></div>
+
         <div className="quote-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+          <button
+            type="button"
+            className="quote-modal-close"
+            aria-label="Close quote form"
+            onClick={handleClose}
+          >
+            ×
+          </button>
+
           {!showThankYou ? (
             <div className="modal-view is-active" id="quoteFormView">
               <div className="quote-modal-header">
@@ -130,7 +159,7 @@ function QuoteForm() {
                   ></textarea>
                 </div>
 
-                {status && <div className="form-message">{status}</div>}
+                {status && <div className="form-message is-visible is-error">{status}</div>}
 
                 <div className="quote-form-actions">
                   <button type="submit" className="btn btn-primary">Send Request</button>
@@ -151,7 +180,7 @@ function QuoteForm() {
                 <button
                   type="button"
                   className="btn btn-primary"
-                  onClick={() => setShowThankYou(false)}
+                  onClick={handleClose}
                 >
                   Close
                 </button>
