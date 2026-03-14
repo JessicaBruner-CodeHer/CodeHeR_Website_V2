@@ -4,7 +4,7 @@ import Footer from "@components/layout/Footer";
 import Hero from "@components/home/Hero";
 import TrustStrip from "@components/home/TrustStrip";
 import Services from "@components/home/Services";
-import Hosting from "@components/home/Hosting";
+
 import About from "@components/home/About";
 import QuoteForm from "@components/forms/QuoteForm";
 
@@ -16,8 +16,7 @@ function Home() {
         <Hero />
         <TrustStrip />
         <Services />
-        <Hosting />
-        <About />
+         <About />
        
          <QuoteForm />
       </main>
