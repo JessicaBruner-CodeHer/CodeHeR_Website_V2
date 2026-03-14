@@ -11,7 +11,7 @@ function Navbar() {
         <nav className="site-nav" aria-label="Primary navigation">
           <a href="#hero">Home</a>
           <a href="#services">Services</a>
-          <a href="#hosting">Hosting</a>
+         
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
