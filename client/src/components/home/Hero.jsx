@@ -33,10 +33,10 @@ function Hero() {
         </div>
 
         <div className="hero-image">
-          <img
+          {/* <img
             src={IMAGES.siteExample}
             alt="Example website built by CodeHeR"
-          />
+          /> */}
         </div>
 
       </div>
