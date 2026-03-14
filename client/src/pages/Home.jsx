@@ -6,7 +6,6 @@ import TrustStrip from "@components/home/TrustStrip";
 import Services from "@components/home/Services";
 import Hosting from "@components/home/Hosting";
 import About from "@components/home/About";
-import ContactCTA from "@components/home/ContactCTA";
 import QuoteForm from "@components/forms/QuoteForm";
 
 function Home() {
@@ -19,7 +18,7 @@ function Home() {
         <Services />
         <Hosting />
         <About />
-        <ContactCTA />
+       
          <QuoteForm />
       </main>
       <Footer />
